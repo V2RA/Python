@@ -1,5 +1,11 @@
 import random
 
+try:
+    import lightrun
+    lightrun.enable(company_key='c0d7ceb1-d646-41f4-956b-60a20078f09b')
+except ImportError as e:
+    print("Error importing Lightrun: ", e)
+
 print("Modes:")
 print("1 - Hard")
 print("2 - Easy")
@@ -27,16 +33,20 @@ def easyMode():
         print(guesslist)
         print(urmom2)
         print(guesslist[0])
-        thing = 0
+        rml = 0
         for c in range(0,4):
-            if guesslist[thing] in urmom2:
-                print("number is in", guesslist[thing])
-                thing = thing + 1
-                break
-            else:
-                print("no")
-                thing = thing + 1
-                break
+          if guess == num:
+              print("You got it!")
+              break
+          if guesslist[rml] in urmom2:
+              print("number is in", guesslist[rml])
+              rml = rml + 1
+            
+          else:
+              print("no")
+              rml = rml + 1
+            
+            
 
 
 if mode == 1:
